@@ -31,12 +31,12 @@ A simple bookmark management system for Laravel Filament applications. This pack
 
 ### For Filament 3
 ```bash
-composer require jaysontemporas/page-bookmarks:"1.0"
+composer require jaysontemporas/page-bookmarks:"^1.0"
 ```
 
 ### For Filament 4
 ```bash
-composer require jaysontemporas/page-bookmarks:"2.0"
+composer require jaysontemporas/page-bookmarks:"^2.0"
 ```
 
 **Publish and run the installation command:**
