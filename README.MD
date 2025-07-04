@@ -22,19 +22,24 @@ A simple bookmark management system for Laravel Filament applications. This pack
 ## Requirements
 
 - PHP 8.3+
-- Laravel 10+
-- Filament 3.2+
-- Livewire 3+
+- Laravel 11+
+- Filament 3 or 4
 
 ## Installation
 
-1. **Install the package via Composer:**
+**Install the package via Composer:**
 
+### For Filament 3
 ```bash
-composer require jaysontemporas/page-bookmarks
+composer require jaysontemporas/page-bookmarks:"1.0"
 ```
 
-2. **Publish and run the installation command:**
+### For Filament 4
+```bash
+composer require jaysontemporas/page-bookmarks:"2.0"
+```
+
+**Publish and run the installation command:**
 
 ```bash
 php artisan page-bookmarks:install
@@ -84,10 +89,15 @@ return [
 ];
 ```
 
+
 This package utilizes Filament's theming system, so you'll need to set up a custom theme to properly style all components.
 
-> [!NOTE] Before proceeding, ensure you have configured a custom theme if you're using Filament Panels. Check the [Filament documentation on themes](https://filamentphp.com/docs/3.x/panels/themes) for detailed instructions. This step is required for both the Panels Package and standalone Forms package.
+> [!NOTE] Before proceeding, ensure you have configured a custom theme if you're using Filament Panels. Check the Filament documentation on themes for detailed instructions. This step is required for both the Panels Package and standalone Forms package.
 
+[Filament 3](https://filamentphp.com/docs/3.x/panels/themes)
+[Filament 4](https://filamentphp.com/docs/4.x/styling/overview#creating-a-custom-theme)
+
+### Filament 3
 To properly compile all the package styles, update your Tailwind configuration by adding the package's view paths:
 
 ```js
@@ -101,6 +111,12 @@ module.exports = {
     ],
     // The rest of your Tailwind config
 };
+```
+### Filament 4
+Add the plugin's views to your theme css file.
+
+```css
+@source '../../../../vendor/jaysontemporas/page-bookmarks/resources/**/*.blade.php';
 ```
 
 ## Usage

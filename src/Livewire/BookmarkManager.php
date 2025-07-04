@@ -4,13 +4,13 @@ declare(strict_types=1);
 
 namespace JaysonTemporas\PageBookmarks\Livewire;
 
+use Filament\Schemas\Schema;
+use Filament\Schemas\Components\Utilities\Set;
 use Filament\Forms\Components\Hidden;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Concerns\InteractsWithForms;
 use Filament\Forms\Contracts\HasForms;
-use Filament\Forms\Form;
-use Filament\Forms\Set;
 use Filament\Notifications\Notification;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Collection;
@@ -21,7 +21,7 @@ use Livewire\Attributes\On;
 use Livewire\Component;
 
 /**
- * @property Form $form
+ * @property Schema $form
  */
 class BookmarkManager extends Component implements HasForms
 {
@@ -64,10 +64,10 @@ class BookmarkManager extends Component implements HasForms
         return $folders;
     }
 
-    public function form(Form $form): Form
+    public function form(Schema $schema): Schema
     {
-        return $form
-            ->schema([
+        return $schema
+            ->components([
                 TextInput::make('name')
                     ->required()
                     ->maxLength(255),

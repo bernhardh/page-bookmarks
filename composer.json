@@ -1,10 +1,11 @@
 {
     "name": "jaysontemporas/page-bookmarks",
-    "version": "1.0.2",
+    "version": "2.0.0",
     "type": "library",
     "require-dev": {
         "php": "^8.3",
-        "laravel/pint": "^1.17"
+        "laravel/pint": "^1.17",
+        "filament/upgrade": "^4.0"
     },
     "license": "MIT",
     "autoload": {
@@ -24,10 +25,10 @@
             "name": "Jayson Temporas"
         }
     ],
-    "minimum-stability": "stable",
+    "minimum-stability": "beta",
     "prefer-stable": true,
     "require": {
-        "filament/filament": "^3.2",
-        "spatie/laravel-package-tools": "^1.18"
+        "filament/filament": "^4.0",
+        "spatie/laravel-package-tools": "^1.9"
     }
 }
