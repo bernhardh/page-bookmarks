@@ -4,28 +4,35 @@ declare(strict_types=1);
 
 namespace JaysonTemporas\PageBookmarks\Livewire;
 
+use Livewire\Component;
+use Livewire\Attributes\On;
+use Filament\Actions\Action;
 use Filament\Schemas\Schema;
-use Filament\Schemas\Components\Utilities\Set;
+use Filament\Support\Enums\Width;
+use Livewire\Attributes\Computed;
+use Illuminate\Support\Collection;
+use Illuminate\Contracts\View\View;
 use Filament\Forms\Components\Hidden;
 use Filament\Forms\Components\Select;
-use Filament\Forms\Components\TextInput;
-use Filament\Forms\Concerns\InteractsWithForms;
 use Filament\Forms\Contracts\HasForms;
+use Filament\Actions\Concerns\HasAction;
+use Filament\Forms\Components\TextInput;
 use Filament\Notifications\Notification;
-use Illuminate\Contracts\View\View;
-use Illuminate\Support\Collection;
+use Filament\Actions\Contracts\HasActions;
+use Filament\Schemas\Components\Utilities\Set;
+use Filament\Forms\Concerns\InteractsWithForms;
 use JaysonTemporas\PageBookmarks\Models\Bookmark;
+use Filament\Actions\Concerns\InteractsWithActions;
 use JaysonTemporas\PageBookmarks\Models\BookmarkFolder;
-use Livewire\Attributes\Computed;
-use Livewire\Attributes\On;
-use Livewire\Component;
 
 /**
  * @property Schema $form
  */
-class BookmarkManager extends Component implements HasForms
+class BookmarkManager extends Component implements HasForms, HasActions
 {
     use InteractsWithForms;
+    use InteractsWithActions;
+    
 
     /** @var array<string, mixed> */
     public ?array $data = [];
