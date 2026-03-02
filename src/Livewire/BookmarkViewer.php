@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace JaysonTemporas\PageBookmarks\Livewire;
 
 use Filament\Notifications\Notification;
+use Filament\Support\Facades\FilamentView;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Collection;
 use JaysonTemporas\PageBookmarks\Models\Bookmark;
@@ -104,6 +105,20 @@ class BookmarkViewer extends Component
             'chevron_down' => 'heroicon-o-chevron-down',
             'empty_state' => 'heroicon-o-bookmark',
         ]);
+    }
+
+    /**
+     * Whether to use wire:navigate on bookmark links (when Filament panel is in SPA mode).
+     */
+    public function useWireNavigate(): bool
+    {
+        $config = config('page-bookmarks.spa');
+
+        if ($config !== null) {
+            return (bool) $config;
+        }
+
+        return FilamentView::hasSpaMode();
     }
 
     public function render(): View

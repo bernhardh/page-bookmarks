@@ -122,6 +122,15 @@ class BookmarkManager extends Component implements HasForms, HasActions
     }
 
     /**
+     * Set the bookmark URL from JavaScript (for SPA mode where request()->url() does not change on client-side navigation)
+     */
+    public function setBookmarkUrl(string $url): void
+    {
+        $this->data['url'] = $url;
+        $this->data['display_url'] = $url;
+    }
+
+    /**
      * Get bookmarks organized by folders
      *
      * @return Collection<string, Collection<int, Bookmark>>

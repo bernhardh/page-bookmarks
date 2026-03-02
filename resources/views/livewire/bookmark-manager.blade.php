@@ -4,19 +4,16 @@
         icon="{{ $this->getIcons()['add_bookmark'] }}"
         class="text-gray-500 transition-colors hover:text-primary-500"
         x-on:click="$dispatch('open-modal', { id: 'bookmark-form-modal' }); $nextTick(() => {
-            // Try to get the title from h1 tag
+            // Use current browser URL for SPA mode (request()->url() does not update on client-side navigation)
+            $wire.setBookmarkUrl(window.location.href);
             const h1 = document.querySelector('h1');
             const pageTitle = h1 ? h1.textContent.trim() : document.title;
-
-            // Dispatch event to Livewire to set the title
             $wire.setBookmarkName(pageTitle);
         })"
         x-on:keydown.meta.shift.b.prevent.document="$dispatch('open-modal', { id: 'bookmark-form-modal' }); $nextTick(() => {
-            // Try to get the title from h1 tag
+            $wire.setBookmarkUrl(window.location.href);
             const h1 = document.querySelector('h1');
             const pageTitle = h1 ? h1.textContent.trim() : document.title;
-
-            // Dispatch event to Livewire to set the title
             $wire.setBookmarkName(pageTitle);
         })"
     />
