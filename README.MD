@@ -23,7 +23,7 @@ A simple bookmark management system for Laravel Filament applications. This pack
 
 - PHP 8.3+
 - Laravel 11+
-- Filament 3 or 4
+- Filament 3, 4, and 5
 
 ## Installation
 
@@ -34,9 +34,14 @@ A simple bookmark management system for Laravel Filament applications. This pack
 composer require jaysontemporas/page-bookmarks:"^1.0"
 ```
 
-### For Filament 4
+### For Filament 4 
 ```bash
 composer require jaysontemporas/page-bookmarks:"^2.0"
+```
+
+### For Filament 5
+```bash
+composer require jaysontemporas/page-bookmarks:"^3.0"
 ```
 
 **Publish and run the installation command:**
@@ -96,6 +101,7 @@ This package utilizes Filament's theming system, so you'll need to set up a cust
 
 [Filament 3](https://filamentphp.com/docs/3.x/panels/themes)
 [Filament 4](https://filamentphp.com/docs/4.x/styling/overview#creating-a-custom-theme)
+[Filament 5](https://filamentphp.com/docs/5.x/styling/overview#creating-a-custom-theme)
 
 ### Filament 3
 To properly compile all the package styles, update your Tailwind configuration by adding the package's view paths:
@@ -112,7 +118,7 @@ module.exports = {
     // The rest of your Tailwind config
 };
 ```
-### Filament 4
+### Filament 4 and 5
 Add the plugin's views to your theme css file.
 
 ```css
