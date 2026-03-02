@@ -35,17 +35,18 @@ class PageBookmarksServiceProvider extends PackageServiceProvider
     public function packageBooted(): void
     {
         // Register the Livewire component
-        Livewire::component('page-bookmarks::livewire.bookmark-manager', BookmarkManager::class);
-        Livewire::component('page-bookmarks::livewire.bookmark-viewer', BookmarkViewer::class);
+        Livewire::component('page-bookmarks-bookmark-manager', BookmarkManager::class);
+        Livewire::component('page-bookmarks-bookmark-viewer', BookmarkViewer::class);
+
 
         FilamentView::registerRenderHook(
             config('page-bookmarks.render_hooks.add_bookmark', PanelsRenderHook::GLOBAL_SEARCH_AFTER),
-            fn (): string => Blade::render("@livewire('page-bookmarks::livewire.bookmark-manager')"),
+            fn (): string => Blade::render("<livewire:page-bookmarks-bookmark-manager />"),
         );
 
         FilamentView::registerRenderHook(
             config('page-bookmarks.render_hooks.view_bookmarks', PanelsRenderHook::GLOBAL_SEARCH_AFTER),
-            fn (): string => Blade::render("@livewire('page-bookmarks::livewire.bookmark-viewer')"),
+            fn (): string => Blade::render("<livewire:page-bookmarks-bookmark-viewer />"),
         );
     }
 }

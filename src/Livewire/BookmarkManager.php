@@ -83,7 +83,11 @@ class BookmarkManager extends Component implements HasForms, HasActions
 
                 Select::make('bookmark_folder_id')
                     ->label('Folder')
-                    ->options(BookmarkFolder::query()->where('user_id', auth()->id())->pluck('name', 'id'))
+                    ->relationship(
+                        name: 'folder',
+                        titleAttribute: 'name',
+                        modifyQueryUsing: fn (\Illuminate\Database\Eloquent\Builder $query) => $query->where('user_id', auth()->id())
+                    )
                     ->createOptionForm([
                         TextInput::make('name')
                             ->required()
