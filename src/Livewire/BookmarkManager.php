@@ -83,7 +83,11 @@ class BookmarkManager extends Component implements HasForms, HasActions
 
                 Select::make('bookmark_folder_id')
                     ->label('Folder')
-                    ->options(BookmarkFolder::query()->where('user_id', auth()->id())->pluck('name', 'id'))
+                    ->relationship(
+                        name: 'folder',
+                        titleAttribute: 'name',
+                        modifyQueryUsing: fn (\Illuminate\Database\Eloquent\Builder $query) => $query->where('user_id', auth()->id())
+                    )
                     ->createOptionForm([
                         TextInput::make('name')
                             ->required()
@@ -115,6 +119,15 @@ class BookmarkManager extends Component implements HasForms, HasActions
     public function setBookmarkName(string $name): void
     {
         $this->data['name'] = $name;
+    }
+
+    /**
+     * Set the bookmark URL from JavaScript (for SPA mode where request()->url() does not change on client-side navigation)
+     */
+    public function setBookmarkUrl(string $url): void
+    {
+        $this->data['url'] = $url;
+        $this->data['display_url'] = $url;
     }
 
     /**

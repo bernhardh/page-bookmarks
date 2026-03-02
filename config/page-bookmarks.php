@@ -46,9 +46,20 @@ return [
     |
     */
     'modal' => [
-        'add_bookmark' => 'slideOver', // 'modal' or 'modal'
+        'add_bookmark' => 'slideOver', // 'modal' or 'slideOver'
         'view_bookmarks' => 'slideOver', // 'modal' or 'slideOver'
     ],
+
+    /*
+    |--------------------------------------------------------------------------
+    | SPA Mode / wire:navigate
+    |--------------------------------------------------------------------------
+    |
+    | When true, bookmark links use Livewire's wire:navigate for SPA-style
+    | navigation. Set to null to auto-detect from the Filament panel (->spa()).
+    |
+    */
+    'spa' => null,
 
     /*
     |--------------------------------------------------------------------------

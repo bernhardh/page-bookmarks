@@ -121,6 +121,7 @@
                                 >
                                     <a
                                         href="{{ $bookmark->url }}"
+                                        @if($this->useWireNavigate()) wire:navigate @endif
                                         class="flex items-center w-full truncate"
                                         title="{{ $bookmark->name }}"
                                     >
